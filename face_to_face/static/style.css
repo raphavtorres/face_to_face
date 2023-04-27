@@ -5,4 +5,41 @@ body {
 
 .content {
     border: 2px, black;
+    text-align: center;
+    margin: 0 auto;
+    width: 400px;
+}
+
+table {
+    margin: auto;
+}
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+    background-color: rgba(233, 183, 135, 0.842);
+}
+
+table, td, th {
+    border: 2px solid white;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th {
+    height: 30px;
+}
+
+td {
+    text-align: center;
+    padding: 5px;
+}
+
+a {
+    color: black;
+    border: 1px solid black;
+    text-decoration: none;
 }

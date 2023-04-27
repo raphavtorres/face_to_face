@@ -16,13 +16,21 @@
                 <th>ACTIONS</th>
             </tr>
             <tr>
-                <td></td>
-                <td></td>
                 <td>
-                    <a href="">delete</a>
+                    <select name="colour" method="GET" action="/" id="">
+                        <option value="{{colours[0]}}" selected>{{colours[0]}}</option>
+                        {% for colour in colours[1:] %}
+                            <option value="{{ colour }}" SELECTED>{{ colour }}</option>
+                        {% endfor %}
+                    </select>
                 </td>
+                <td><a href="">delete</a>
+                    <a href="">confirm</a></td>
+            
             </tr>
         </table>
+        
+        
     </div>
 </body>
 </html>

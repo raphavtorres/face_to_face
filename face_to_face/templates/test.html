@@ -19,22 +19,26 @@
                 </tr>
                 <tr>
                     <p>{{people[0]}}</p>
-                    <td>
-                        <select name="people" method="GET" action="/" id="">
-                            
-                            <option value="{{people[0]}}" selected>{{people[0]}}</option>
-                            {% for person in people[1:] %}
-                                <option value="{{ person }}" SELECTED>{{ person }}</option>
-                            {% endfor %}
-                        </select>
-                    </td>
-                    <td>
-                        <button onclick="changeIndex()" class="btn">get tip</button>
-                        <button class="btn">confirm</button>
-                    </td>
-            
+                    
+                    <form action="/" method="POST">
+                        <td>
+                            <select name="people_slc" method="GET" action="/" id="">
+                                <option value="" selected>select...</option>
+                                {% for person in people[0:] %}
+                                    <option value="{{ person }}">{{ person }}</option>
+                                {% endfor %}
+                            </select>
+                        </td>
+                        
+                        <td>
+                            <input type="button" onclick="changeIndex()" class="btn" name="" value="get tip">
+                            <input type="submit" name="confirm" value="CONFIRM">
+                            <!-- <button onclick="changeIndex()" class="btn" name="">get tip</button> -->
+                        </td> 
+                    </form>
                 </tr>
             </table>
+           
             <h2 id='tipIndex'>TIP: </h2>
         </section>
         

@@ -31,7 +31,7 @@ def game_logic_2(person):
 
 app = Flask(__name__)
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/', methods=['GET'])
 def index():
     people = create_people()
     people_name = []

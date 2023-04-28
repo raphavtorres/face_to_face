@@ -4,10 +4,16 @@ body {
 }
 
 .content {
+    display: flex;
     border: 2px, black;
     text-align: center;
     margin: 0 auto;
     width: 400px;
+    height: 100vh;
+}
+
+section {
+    margin-top: 60%;
 }
 
 table {
@@ -38,8 +44,34 @@ td {
     padding: 5px;
 }
 
+h1 {
+    font-size: 2em;
+}
+
 a {
     color: black;
     border: 1px solid black;
     text-decoration: none;
+}
+
+
+select {
+    font-family: sans-serif;
+    font-size: 1em;
+    text-transform: capitalize;
+    text-align: center;
+    border: 0px;
+    border-radius: 5px;
+    width: 10em;
+    height: 2.5em;
+}
+
+.btn {
+    background-color: brown;
+    color: white;
+    text-transform: uppercase;
+    border-radius: 5px;
+    border: none;
+    width: 5em;
+    padding: 10px;
 }

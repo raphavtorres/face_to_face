@@ -2,6 +2,8 @@ from random import shuffle
 import json
 
 from classes.Person import Person
+from classes.Player import Player
+
 
 FILE_PATH = 'json.json'
 
@@ -18,7 +20,7 @@ def create_people():
         for obj in objects:
             people.append(Person(**obj))
     shuffle(people)
-    return people[0]
+    return people
 
 
 def game_logic(person, player):
@@ -42,3 +44,18 @@ def game_logic(person, player):
             print(f"You're not {guess}")
             
             
+def dump():
+    p1 = Person("Beck", ['gay', 'randandan', 'moto', 'bigode', 'tpm'])
+    p2 = Person("raphael", ['sensual', 'gaytbm', 'tpg', 'barba', 'maristella'])
+    bd = [vars(p1), vars(p2)]
+    with open(FILE_PATH, 'w', encoding='utf8') as file:
+        json.dump(bd, file, ensure_ascii=False, indent=2)
+
+
+def face_to_face():
+    # name = header()
+    player = Player(name="raphael")
+    people = create_people()
+    person = people[0]
+    print("WELCOME,", player.name)
+    game_logic(person, player)

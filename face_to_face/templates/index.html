@@ -9,26 +9,29 @@
 </head>
 <body>
     <div class="content">
-        <h1>FACE TO FACE</h1>
-        <table>
-            <tr>
-                <th>PEOPLE</th>
-                <th>ACTIONS</th>
-            </tr>
-            <tr>
-                <td>
-                    <select name="colour" method="GET" action="/" id="">
-                        <option value="{{colours[0]}}" selected>{{colours[0]}}</option>
-                        {% for colour in colours[1:] %}
-                            <option value="{{ colour }}" SELECTED>{{ colour }}</option>
-                        {% endfor %}
-                    </select>
-                </td>
-                <td><a href="">delete</a>
-                    <a href="">confirm</a></td>
+        <section>
+            <h1>FACE TO FACE</h1>
+            <table>
+                <tr>
+                    <th>PEOPLE</th>
+                    <th>ACTIONS</th>
+                </tr>
+                <tr>
+                    <td>
+                        <select name="people" method="GET" action="/" id="">
+                            <option value="{{people[0]}}" selected>{{people[0]}}</option>
+                            {% for person in people[1:] %}
+                                <option value="{{ person }}" SELECTED>{{ person }}</option>
+                            {% endfor %}
+                        </select>
+                    </td>
+                    <td><a href="" class="btn">get tip</a>
+                        <a href="" class="btn">confirm</a></td>
             
-            </tr>
-        </table>
+                </tr>
+            </table>
+            <h2>TIP: {{ tip_person }}</h2>
+        </section>
         
         
     </div>

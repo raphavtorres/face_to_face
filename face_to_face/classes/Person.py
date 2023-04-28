@@ -1,9 +1,9 @@
 from random import shuffle
 
 class Person():
-    def __init__(self, name, tip1, tip2, tip3, tip4, tip5) -> None:
-        self.__name = name
-        self.__tips = [tip1, tip2, tip3, tip4, tip5]
+    def __init__(self, _Person__name, _Person__tips):
+        self.__name = _Person__name
+        self.__tips = _Person__tips
 
     @property
     def name(self):

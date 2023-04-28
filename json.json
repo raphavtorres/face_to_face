@@ -1,14 +1,22 @@
 [
   {
-    "name": "Raphael",
-    "age": 19
+    "_Person__name": "Beck",
+    "_Person__tips": [
+      "gay",
+      "randandan",
+      "moto",
+      "bigode",
+      "tpm"
+    ]
   },
   {
-    "name": "Maristella",
-    "age": 18
-  },
-  {
-    "name": "Beck",
-    "age": 20
+    "_Person__name": "raphael",
+    "_Person__tips": [
+      "sensual",
+      "gaytbm",
+      "tpg",
+      "barba",
+      "maristella"
+    ]
   }
 ]

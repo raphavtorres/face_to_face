@@ -1,7 +1,9 @@
 from random import shuffle
+import json
 
 from classes.Person import Person
 
+FILE_PATH = 'json.json'
 
 def header():
     print("WELCOME TO FACE TO FACE")
@@ -10,24 +12,33 @@ def header():
 
 
 def create_people():
-    p1 = Person('Beck', "branco(a)", 'alto(a)', 'faz facul', 'randandan', 'grau')
-    p2 = Person('Alemão', "branco(a)", 'baixo(a)', 'não faz facul', 'kart', 'apêndice')
-    p3 = Person('Maciel', "moreno(a)", 'baixo(a)', 'não faz facul', 'amaciente', 'verdin')
-
-    people = [p1, p2, p3]
+    people = []
+    with open(FILE_PATH, 'r', encoding='utf8') as file:
+        objects = json.load(file)
+        for obj in objects:
+            people.append(Person(**obj))
     shuffle(people)
     return people[0]
 
 
-def show_tip(person):
+def game_logic(person, player):
     tips = person.tip
 
-    for i in range(1, 5):
-        print("TIP", i, tips[-1])
+    for i in range(1, 6):
+        print("\nLIFE AMOUNT =", player.life)
+        print("\nTIP", i, tips[-1])
         tips.pop()
         
         guess = input("Guess >> ")
+
         if guess == person.name:
-            print("You won!")
+            print("You WON!")
+            break
         else:
+            player.loose_life()
+            if (player.life == 0):
+                print("You LOST!")
+                break
             print(f"You're not {guess}")
+            
+            

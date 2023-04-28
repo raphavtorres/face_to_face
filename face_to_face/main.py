@@ -5,7 +5,7 @@ from functions import face_to_face, dump, create_people
 from classes.Player import Player
 
 
-def game_logic_2(person, player):
+def game_logic_2(person):
     player = Player(name="raphael")
     tips = person.tip
 
@@ -14,9 +14,9 @@ def game_logic_2(person, player):
         print("\nTIP", i, tips[-1])
         tips.pop()
         
-        guess = input("Guess >> ")
+        """ guess = input("Guess >> ") """
 
-        if guess == person.name:
+        """ if guess == person.name:
             print("You WON!")
             break
         else:
@@ -24,22 +24,23 @@ def game_logic_2(person, player):
             if (player.life == 0):
                 print("You LOST!")
                 break
-            print(f"You're not {guess}")
+            print(f"You're not {guess}") """
 
-    return player
+    return player, tips
 
 
 app = Flask(__name__)
 
-@app.route('/', methods=['GET'])
+@app.route('/', methods=['GET', 'POST'])
 def index():
     people = create_people()
     people_name = []
     for person in people:
         people_name.append(person.name)
+    person = people[0]
+    player, tips = game_logic_2(person)
 
-    player = game_logic_2()
-    return render_template('index.html', people=people_name, life_amount=player.life)
+    return render_template('index.html', people=people_name, life_amount=player.life, player_name=player.name, tip_person=tips)
 
 
 if __name__ == '__main__':

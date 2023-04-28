@@ -67,11 +67,12 @@ select {
 }
 
 .btn {
+    font-size: 1em;;
     background-color: brown;
     color: white;
     text-transform: uppercase;
     border-radius: 5px;
     border: none;
-    width: 5em;
+    width: 6em;
     padding: 10px;
 }

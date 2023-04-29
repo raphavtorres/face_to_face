@@ -15,6 +15,7 @@ player, tips = game_logic(person)
 list_cluster = [""]
 
 
+
 @app.route('/', methods=['POST', 'GET'])
 def index():
     life_amount = player.life

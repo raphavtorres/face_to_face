@@ -2,9 +2,17 @@ from random import shuffle
 import json
 
 from classes.Person import Person
+from classes.Player import Player
 
 
 FILE_PATH = 'json.json'
+
+
+def game_logic(person):
+    player = Player(name="Raphael")
+    tips = person.tip
+
+    return player, tips
 
 
 def header():
@@ -27,7 +35,7 @@ def test_guess(person, player, guess):
     if guess == person.name:
         player.life = 1000
     else:
-        player.life = -20
+        player.life = 0
 
     return player.life
 

@@ -1,14 +1,6 @@
 from flask import Flask, render_template, request
 
-from functions import create_people, test_guess
-from classes.Player import Player
-
-
-def game_logic_2(person):
-    player = Player(name="Raphael")
-    tips = person.tip
-
-    return player, tips
+from functions import create_people, test_guess, game_logic
 
 
 app = Flask(__name__)
@@ -19,7 +11,7 @@ people_name = []
 for person in people:
     people_name.append(person.name)
 person = people[0]
-player, tips = game_logic_2(person)
+player, tips = game_logic(person)
 list_cluster = [""]
 
 
@@ -42,8 +34,11 @@ def index():
 
 @app.route("/looselife/", methods=['POST'])
 def index_2():
-    tip = tips[0]
-    tips.pop(0)
+    try:
+        tip = tips[0]
+        tips.pop(0)
+    except IndexError:
+        tip = ""
     list_cluster.append(tip)
     if request.method == 'POST':
         player.loose_life()

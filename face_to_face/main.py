@@ -1,49 +1,63 @@
-import json
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
-from functions import face_to_face, dump, create_people
+from functions import create_people, test_guess
 from classes.Player import Player
 
 
 def game_logic_2(person):
-    player = Player(name="raphael")
+    player = Player(name="Raphael")
     tips = person.tip
-
-    for i in range(1, 6):
-        """ print("\nLIFE AMOUNT =", player.life) """
-        print("\nTIP", i, tips[-1])
-        tips.pop()
-        
-        """ guess = input("Guess >> ") """
-
-        """ if guess == person.name:
-            print("You WON!")
-            break
-        else:
-            player.loose_life()
-            if (player.life == 0):
-                print("You LOST!")
-                break
-            print(f"You're not {guess}") """
 
     return player, tips
 
 
 app = Flask(__name__)
 
-@app.route('/', methods=['GET'])
-def index():
-    people = create_people()
-    people_name = []
-    for person in people:
-        people_name.append(person.name)
-    person = people[0]
-    player, tips = game_logic_2(person)
 
-    return render_template('index.html', people=people_name, life_amount=player.life, player_name=player.name, tip_person=tips)
+people = create_people()
+people_name = []
+for person in people:
+    people_name.append(person.name)
+person = people[0]
+player, tips = game_logic_2(person)
+list_cluster = [""]
+
+
+@app.route('/', methods=['POST', 'GET'])
+def index():
+    life_amount = player.life
+    player_name = player.name
+
+    if request.method == 'POST':
+        guess = request.form['people_slc']
+        life_amount = test_guess(person, player, guess)
+    return render_template(
+        'index.html',
+        people=people_name,
+        life_amount=life_amount,
+        player_name=player_name,
+        tip_person=[]
+    )
+
+
+@app.route("/looselife/", methods=['POST'])
+def index_2():
+    tip = tips[0]
+    tips.pop(0)
+    list_cluster.append(tip)
+    if request.method == 'POST':
+        player.loose_life()
+        life_amount = player.life
+        player_name = player.name
+
+    return render_template(
+        'index.html',
+        people=people_name,
+        life_amount=life_amount,
+        player_name=player_name,
+        tip_person=list_cluster
+    )
 
 
 if __name__ == '__main__':
-    # dump()
     app.run(debug=True)
-    # face_to_face()

@@ -4,16 +4,10 @@ body {
 }
 
 .content {
-    display: flex;
     border: 2px, black;
     text-align: center;
-    margin: 0 auto;
-    width: 400px;
-    height: 100vh;
-}
-
-section {
-    margin-top: 60%;
+    margin: auto;
+    margin-top: 15vh;
 }
 
 table {
@@ -32,7 +26,7 @@ table, td, th {
 
 table {
     border-collapse: collapse;
-    width: 100%;
+    width: 40vw;
 }
 
 th {
@@ -54,8 +48,8 @@ a {
     text-decoration: none;
 }
 
-
 select {
+    margin: 15px;
     font-family: sans-serif;
     font-size: 1em;
     text-transform: capitalize;
@@ -67,6 +61,7 @@ select {
 }
 
 .btn {
+    margin: 15px;
     font-size: 1em;;
     background-color: brown;
     color: white;

@@ -7,15 +7,19 @@ class Player():
     @property
     def name(self):
         return self.__name
-    
+
     @property
     def life(self):
         return self.__life
-    
+
+    @life.setter
+    def life(self, value):
+        self.__life = value
+
     @property
     def tips_amount(self):
         return self.__tips_amount
-    
+
     def loose_life(self):
         self.__life -= 20
-        self.__tips_amount =- 1
+        self.__tips_amount -= 1

@@ -27,9 +27,7 @@ def test_guess(person, player, guess):
     if guess == person.name:
         player.life = 1000
     else:
-        player.life = 0
-        # player.loose_life()
-        ...
+        player.life = -20
 
     return player.life
 

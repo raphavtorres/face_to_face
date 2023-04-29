@@ -12,8 +12,9 @@
 <body>
     <div class="content">
         <h1>FACE TO FACE</h1>
+        <h1>{{ people[0] }}</h1>
 
-        {% if life_amount == 0 %}
+        {% if life_amount == -20 %}
         <h2>{{ player_name }}, YOU LOST!</h2>
         {% elif life_amount == 1000 %}
         <h2>{{ player_name }}, YOU WON!</h2>
